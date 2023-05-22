@@ -4,7 +4,8 @@ const app = Vue.createApp({
             // Product
             product: 'Socks',
             image: './assets/images/socks_green.jpg',
-            url: 'https://github.com/SamynathanS6720'
+            inStock: 0 ,
+            onSale: true
         }
     }
 })
