@@ -25,17 +25,19 @@
           <img :src="image">
         </div>
         <div class="product-info">
-          <h1>{{ product }}</h1>
-          <p v-if="inStock > 10">In stock</p>
-          <p v-else-if="inStock <= 10 && inStock > 0">Hurry up!!! only few stock is Available!</p>
-          <p v-else="inStock">Out of stock</p>
+          <h1>{{ title }}</h1>
+
+          <p v-if="inStock > 0">{{ sale }}</p>
+
+          <p v-if="inStock">In stock</p>
+          <p v-else>Out of stock</p>
           <ul>
             <li v-for="detail in details">{{ detail }}</li>
           </ul>
           <div 
-            v-for="variant in variants" 
+            v-for="(variant, index) in variants" 
             :key="variant.id" 
-            @mouseover="updateImage(variant.image )"
+            @mouseover="updateVariant( index )"
             class="color-circle"
             :style="{backgroundColor: variant.color}">
           </div>
